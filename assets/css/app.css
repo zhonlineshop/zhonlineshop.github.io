@@ -1,0 +1,132 @@
+/* Write your styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+}
+
+/* nav */
+.am-nav {
+    float: right
+}
+
+.am-nav > li > a {
+    padding: 0 15px;
+}
+
+.am-nav > li > a, .am-nav > li > a:hover, .am-nav > li > a:focus {
+    background: none;
+    color: #3f3f3f;
+}
+
+.am-nav > li > a:after {
+    border-bottom: none; /* 去掉默认的字体下面的小三角 */
+}
+
+.menu-main > li a.am-active, .menu-main > li a.am-active:hover, .menu-main > li a.am-active:focus {
+    color: #2ea3dc;
+}
+
+.img-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.prev-img {
+    min-height: 300px;
+    overflow: auto;
+}
+
+.prev-img img {
+    max-height: 280px;
+}
+
+.no-borderb {
+    border-bottom: 0;
+}
+
+/* 介绍 */
+.intro-mod .intro-title {
+    text-align: center
+}
+
+.intro-mod .intro-title h1 {
+    margin-bottom: 0;
+    font-size: 5.5rem;
+}
+
+.intro-mod .intro-title span {
+    font-size: 3rem
+}
+
+.intro-mod .intro-list {
+    margin: 100px 0;
+}
+
+.intro-mod .intro-list .intro-text {
+    font-size: 1.8rem;
+    color: #929292
+}
+
+.intro-list:nth-child(odd) .intro-img {
+    float: right;
+}
+
+.ui {
+    width: 100%;
+    position: relative;
+    margin: 0;
+}
+
+.ui .next, .ui .pause, .ui .prev {
+    display: inline-block;
+    float: right;
+    color: #CDD3D1;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.ui-spinner {
+    width: 46px;
+    height: 46px;
+    background: #dddddd;
+}
+
+.ui-spinner .side .fill {
+    background: #3c76ca;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -ms-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+    opacity: 0.8;
+}
+
+.ui-spinner:after {
+    content: "";
+    background: transparent;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    top: 9px;
+    left: 9px;
+    display: block;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    background: #f9f9f9;
+    padding: 40px 0;
+}
+
+footer .copyright {
+    text-align: center;;
+}
+
+img.center-img{
+	display: block;
+    margin: auto;
+}
