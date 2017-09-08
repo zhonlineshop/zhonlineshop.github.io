@@ -66,7 +66,7 @@ var dataMap = {
 		imageFolder:"assets/images/chair/",
 		prefix:"chair_{{color}}_",
 		ext: ".png",
-		colorList:["red","green","milkwhite"],
+		colorList:["red","green","white"],
 		backgroud:[
 			{
 				img:"background_1.jpg",
