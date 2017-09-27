@@ -7,16 +7,16 @@ var dataMap = {
 		backgroud:[
 			{
 				img:"background1.jpg",
-				desc: "blank"
+				desc: "background1"
 			},
 			{
 				img:"background2.jpg",
-				desc: "indoor"
+				desc: "background2"
 			}
 			,
 			{
 				img:"background3.jpg",
-				desc: "outdoor"
+				desc: "background3"
 			}
 		]
 	},
@@ -28,16 +28,16 @@ var dataMap = {
 		backgroud:[
 			{
 				img:"background1.jpg",
-				desc: "blank"
+				desc: "background1"
 			},
 			{
 				img:"background2.jpg",
-				desc: "indoor"
+				desc: "background2"
 			}
 			,
 			{
 				img:"background3.jpg",
-				desc: "outdoor"
+				desc: "background3"
 			}
 		]
 	},
@@ -49,16 +49,16 @@ var dataMap = {
 		backgroud:[
 			{
 				img:"background1.jpg",
-				desc: "blank"
+				desc: "background1"
 			},
 			{
 				img:"background2.jpg",
-				desc: "indoor"
+				desc: "background2"
 			}
 			,
 			{
 				img:"background3.jpg",
-				desc: "outdoor"
+				desc: "background3"
 			}
 		]
 	},
@@ -70,16 +70,16 @@ var dataMap = {
 		backgroud:[
 			{
 				img:"background1.jpg",
-				desc: "blank"
+				desc: "background1"
 			},
 			{
 				img:"background2.jpg",
-				desc: "indoor"
+				desc: "background2"
 			}
 			,
 			{
 				img:"background3.jpg",
-				desc: "outdoor"
+				desc: "background3"
 			}
 		]
 	}
