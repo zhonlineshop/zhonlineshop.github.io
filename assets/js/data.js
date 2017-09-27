@@ -6,16 +6,16 @@ var dataMap = {
 		colorList:["green", "red" ,"white"],
 		backgroud:[
 			{
-				img:"background_1.jpg",
+				img:"background1.jpg",
 				desc: "blank"
 			},
 			{
-				img:"background_2.jpg",
+				img:"background2.jpg",
 				desc: "indoor"
 			}
 			,
 			{
-				img:"background_3.jpg",
+				img:"background3.jpg",
 				desc: "outdoor"
 			}
 		]
@@ -27,16 +27,16 @@ var dataMap = {
 		colorList:["black", "green" ,"red"],
 		backgroud:[
 			{
-				img:"background_1.jpg",
+				img:"background1.jpg",
 				desc: "blank"
 			},
 			{
-				img:"background_2.jpg",
+				img:"background2.jpg",
 				desc: "indoor"
 			}
 			,
 			{
-				img:"background_3.jpg",
+				img:"background3.jpg",
 				desc: "outdoor"
 			}
 		]
@@ -48,16 +48,16 @@ var dataMap = {
 		colorList:["black","white"],
 		backgroud:[
 			{
-				img:"background_1.jpg",
+				img:"background1.jpg",
 				desc: "blank"
 			},
 			{
-				img:"background_2.jpg",
+				img:"background2.jpg",
 				desc: "indoor"
 			}
 			,
 			{
-				img:"background_3.jpg",
+				img:"background3.jpg",
 				desc: "outdoor"
 			}
 		]
@@ -69,16 +69,16 @@ var dataMap = {
 		colorList:["red","green","white"],
 		backgroud:[
 			{
-				img:"background_1.jpg",
+				img:"background1.jpg",
 				desc: "blank"
 			},
 			{
-				img:"background_2.jpg",
+				img:"background2.jpg",
 				desc: "indoor"
 			}
 			,
 			{
-				img:"background_3.jpg",
+				img:"background3.jpg",
 				desc: "outdoor"
 			}
 		]
