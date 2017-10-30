@@ -119,7 +119,8 @@ h1, h2, h3, h4, h5, h6 {
 footer {
     width: 100%;
     background: #f9f9f9;
-    padding: 40px 0;
+    position: fixed;
+    bottom: 0;
 }
 
 footer .copyright {
