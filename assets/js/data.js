@@ -18,7 +18,8 @@ var dataMap = {
 				img:"background3.jpg",
 				desc: "background3"
 			}
-		]
+		],
+		productInfo: "scooter介绍"
 	},
 	"watch":{
 		imageFolder:"assets/images/watch/",
@@ -39,7 +40,8 @@ var dataMap = {
 				img:"background3.jpg",
 				desc: "background3"
 			}
-		]
+		],
+		productInfo: "watch介绍"
 	},
 	"phone":{
 		imageFolder:"assets/images/phone/",
@@ -60,7 +62,8 @@ var dataMap = {
 				img:"background3.jpg",
 				desc: "background3"
 			}
-		]
+		],
+		productInfo: "phone介绍"
 	},
 	"chair":{
 		imageFolder:"assets/images/chair/",
@@ -81,6 +84,7 @@ var dataMap = {
 				img:"background3.jpg",
 				desc: "background3"
 			}
-		]
+		],
+		productInfo: "chair介绍"
 	}
 }

@@ -130,3 +130,28 @@ img.center-img{
 	display: block;
     margin: auto;
 }
+
+
+#interactionSelect{
+    display: inline-block;
+    float: right;
+    display: none;
+}
+
+
+#interactionSelect select{
+    background-color: #0e90d2;
+    border-color: #0e90d2;
+}
+
+ #area1{
+    display: none;
+    margin-top: 80px;
+}
+
+#area1 .am-container{
+    height: 250px;
+    line-height: 250px;
+    text-align: center;
+    font-size: 700;
+}

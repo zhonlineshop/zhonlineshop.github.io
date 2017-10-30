@@ -11,89 +11,52 @@ $(function () {
         var link_length = aLi[i].getAttribute("href").length;
         var links = aLi[i].getAttribute("href").substring(0, link_length - 5);
         var currnLinks = document.location.href;
-        /*if (currnLinks.indexOf(links) != -1) {
-         aLi[0].className = ""; //去掉默认的首页高亮
-         aLi[i].className = "am-active";
-         }else if (currnLinks.indexOf('reports') != -1 || currnLinks.indexOf('contact') != -1 || currnLinks.indexOf('join') != -1) {
-         aLi[0].className = "";
-         aLi[aLi.length - 1].className = "am-active";
-         }*/
     }
     // 左右panel等高
     $('.con-panel-right').height($('.img-panel-left').height());
 
-    // 初始化产品
-    $('#selectProduct list').empty();
+    // $$$全局变量
+    var currentProduct = "";
+    var currentProductIndex = -1;
+    var showTimes = 2; // 展示的商品数
+    var countTimes = 10; // 倒计时30
+    var selectColorTimes = 3; // 最多只能选择3次颜色
+    var selectBgTimes = 3; // 最多只能选择3次背景
+
+    // $$$初始化产品
+    var productArr = [];
     for(var product in dataMap){
-       $('#selectProduct .list').append('<button type="button" class="am-btn am-round am-btn-xs" data-product="'+ product +'">' + product + '</button>');
+        productArr.push(product);
     }
 
-    // product 切换
-    $('#selectProduct .list').on('click', 'button', function(){
-        var productName = $(this).data('product');
-        var mode = $('#selectMode .am-active').data('mode') || 1;
-        // 切换样式
-        $('#selectProduct .list button').removeClass('am-active am-btn-success');
-        $(this).addClass('am-active am-btn-success');
-        changeProductOrMode(productName, mode);
-    });
+    function getRmdProduct() {
+        var rmdProductIndex = Math.floor(Math.random() * productArr.length);
+        var rmdProduct = dataMap[productArr[rmdProductIndex]];
+        if(currentProductIndex === rmdProductIndex){
+            getRmdProduct();
+        }
+        currentProduct = rmdProduct;
+        return rmdProduct;
+    }
 
-    $('#selectProduct .list button').eq(0).trigger('click');
+    function showOver(){
+        $("#area2").hide();
+        $("#area1").show();
+    }
 
-
-    // mode切换
-    $('#selectMode .list').on('click', 'button', function(){
-        var productName =  $('#selectProduct .am-active').data('product');
-        var mode = $(this).data('mode') || 1;
-        // 切换样式
-        $('#selectMode .list button').removeClass('am-active am-btn-success');
-        $(this).addClass('am-active am-btn-success');
-        changeProductOrMode(productName, mode);
-    });
-
-    // 颜色切换
-    $('#selectModeSubColor .list').on('click', 'button', function(){
-         // 切换样式
-        $('#selectModeSubColor .list button').removeClass('am-active am-btn-success');
-        $(this).addClass('am-active am-btn-success');
-
-        var color = $('#selectModeSubColor .am-active').data('color');
-        $('#displayContainer').empty()
-                    .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
-        buildThreeSixty(currentProduct, color);
-		var bgimg = $('#selectModeSubBg .am-active').data('bgimg');
-		$('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
-    });
-
-    // 背景切换
-    $('#selectModeSubBg .list').on('click', 'button', function(){
-         // 切换样式
-        $('#selectModeSubBg .list button').removeClass('am-active am-btn-success');
-        $(this).addClass('am-active am-btn-success');
-
-        var bgimg = $('#selectModeSubBg .am-active').data('bgimg');
-		$('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
-    });
-
-    var currentProduct;
-    function changeProductOrMode(productName,  mode){
-        var product = dataMap[productName];
+    function changeProductOrMode(product,  mode){
         currentProduct = product;
-         if(mode == 1){
-            $('#selectModeSub').hide();
-
+         if(mode == 0){
             $('#displayContainer').empty()
                     .append('<img class="center-img" src=' + product.imageFolder + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
 
         }else {
              $('#displayContainer').empty()
                     .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
-            if(mode == 2){
-                 $('#selectModeSub').hide();
-				 buildThreeSixty(product);
+            if(mode == 1){
+                 buildThreeSixty(product);
              }else {
-                 $('#selectModeSub').show();
-                 if(mode == 3){
+                 if(mode == 2){
 
                     // 切换颜色
                     $('#selectModeSubColor .list').empty();
@@ -102,16 +65,15 @@ $(function () {
                             .append('<button type="button" class="am-btn am-round am-btn-xs" data-color="'+ product.colorList[colorIndex] +'">' 
                                     + product.colorList[colorIndex]+ '</button>');
                      }
-                     $('#selectModeSubColor button').eq(0).trigger('click');
+                     $('#chooseColor').trigger('click');
 
                      // 切换背景
-                     $('#selectModeSubBg .list').empty();
                      for(var bgIndex in product.backgroud){
                         $('#selectModeSubBg .list')
                             .append('<button type="button" class="am-btn am-round am-btn-xs" data-bgimg="'+ product.backgroud[bgIndex].img +'">' 
                                     +product.backgroud[bgIndex].desc+ '</button>');
                      }
-                     $('#selectModeSubBg button').eq(0).trigger('click');
+                     $('#chooseBg').trigger('click');
 
                  }
              }
@@ -119,6 +81,92 @@ $(function () {
         }
     }
 
+    function showCase (){
+         countTimes = 10;
+         $("#countTimes").html(countTimes);
+        // $$$随机产生一个产品
+        var rmdProduct = getRmdProduct();
+
+         // $$$随机产生一中展示方式0:2D 1:3D 2:Contextual interaction
+        var rmdMode = Math.floor(Math.random() * 3);
+
+        console.info(rmdProduct, rmdMode);
+
+         if(rmdMode == 2){
+            // $$$随机产生一个颜色
+            var rmdColorIndex =  Math.floor(Math.random() * rmdProduct.colorList.length);
+            var rmdColor =  rmdProduct.colorList[rmdColorIndex];
+            // $$$随机产生一个背景图
+            var rmdBgIndex =  Math.floor(Math.random() * rmdProduct.backgroud.length);
+            var rmdBg =  rmdProduct.backgroud[rmdBgIndex];
+            // $$$ 生成下拉选项
+            $('#chooseColor').empty();
+            $('#chooseBg').empty();
+            for(var i in rmdProduct.colorList){
+                var item = rmdProduct.colorList[i];
+                $('#chooseColor').append('<option value="' + item+ '">' + item + '</option>')
+            }
+            for(var i in rmdProduct.backgroud){
+                var item = rmdProduct.backgroud[i];
+                $('#chooseBg').append('<option value="' + item.img + '">' + item.desc + '</option>')
+            }
+            $('#interactionSelect').show();
+        }else{
+            $('#interactionSelect').hide();
+        }
+        $('#productInfo').html(rmdProduct.productInfo);
+        changeProductOrMode(rmdProduct, rmdMode);
+    }
+
+    showCase();
+    var itv = setInterval(function(){
+         countTimes--
+         $("#countTimes").html(countTimes);
+         if(countTimes == -1){
+            showTimes--;
+            if(showTimes == 1){
+                 showCase();
+            }
+            if(showTimes == 0){
+                clearInterval(itv);
+                showOver();
+            }
+         }
+    }, 1000);
+    
+    $("#chooseColor").change(function(){
+        countTimes = 30;
+        selectColorTimes --;
+        if(selectColorTimes <= 0){
+            clearInterval(itv);
+            return false;
+        }
+        var color = $("#chooseColor").val();
+        var bgimg = $("#chooseBg").val();
+        $('#displayContainer').empty()
+                    .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
+        buildThreeSixty(currentProduct, color);
+        $('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
+    });
+
+    $("#chooseBg").change(function(){
+        countTimes = 30;
+        selectBgTimes --;
+        console.info(selectBgTimes)
+        if(selectBgTimes <= 0){
+            clearInterval(itv);
+            return false;
+        }
+        var color = $("#chooseColor").val();
+        var bgimg = $("#chooseBg").val();
+         $('#displayContainer').empty()
+                    .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
+        buildThreeSixty(currentProduct, color);
+        $('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
+
+    });
+  
+  
 
 	var current360;
 
@@ -139,22 +187,6 @@ $(function () {
                 navigation: true
             });
     }
-
-   /* $('.product').ThreeSixty({
-        totalFrames: 72, // Total no. of image you have for 360 slider
-        endFrame: 72, // end frame for the auto spin animation
-        currentFrame: 1, // This the start frame for auto spin
-        imgList: '.threesixty_images', // selector for image list
-        progress: '.spinner', // selector to show the loading progress
-        imagePath:'assets/images/mint1/', // path of the image assets
-        filePrefix: 'red_vespa_', // file prefix if any
-        ext: '.jpg', // extention for the assets
-        height: 265,
-        width: 400,
-        navigation: true,
-        disableSpin: true // Default false
-    });*/
-
 
 
 })
