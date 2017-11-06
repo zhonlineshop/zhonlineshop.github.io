@@ -19,7 +19,7 @@ $(function () {
     var currentProduct = "";
     var currentProductIndex = -1;
     var showTimes = 2; // 展示的商品数
-    var countTimes = 10; // 倒计时30
+    var countTimes = 30; // 倒计时30
     var selectColorTimes = 3; // 最多只能选择3次颜色
     var selectBgTimes = 3; // 最多只能选择3次背景
 
@@ -82,16 +82,14 @@ $(function () {
     }
 
     function showCase (){
-         countTimes = 10;
+         countTimes = 30;
          $("#countTimes").html(countTimes);
         // $$$随机产生一个产品
         var rmdProduct = getRmdProduct();
 
          // $$$随机产生一中展示方式0:2D 1:3D 2:Contextual interaction
         var rmdMode = Math.floor(Math.random() * 3);
-
-        console.info(rmdProduct, rmdMode);
-
+        
          if(rmdMode == 2){
             // $$$随机产生一个颜色
             var rmdColorIndex =  Math.floor(Math.random() * rmdProduct.colorList.length);
@@ -124,7 +122,7 @@ $(function () {
          $("#countTimes").html(countTimes);
          if(countTimes == -1){
             showTimes--;
-            if(showTimes == 1){
+            if(showTimes >= 1){
                  showCase();
             }
             if(showTimes == 0){
@@ -132,6 +130,8 @@ $(function () {
                 showOver();
             }
          }
+          // 左右panel等高
+        $('.con-panel-right').height($('.img-panel-left').height());
     }, 1000);
     
     $("#chooseColor").change(function(){
@@ -165,8 +165,6 @@ $(function () {
         $('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
 
     });
-  
-  
 
 	var current360;
 

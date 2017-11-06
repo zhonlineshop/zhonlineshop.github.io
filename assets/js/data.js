@@ -21,11 +21,11 @@ var dataMap = {
 		],
 		productInfo: "scooter介绍"
 	},
-	"watch":{
-		imageFolder:"assets/images/watch/",
-		prefix:"watch_{{color}}_",
+	"shoe":{
+		imageFolder:"assets/images/shoe/",
+		prefix:"shoe_{{color}}_",
 		ext: ".png",
-		colorList:["black", "green" ,"red"],
+		colorList:["blue","pink","white"],
 		backgroud:[
 			{
 				img:"background1.jpg",
@@ -41,29 +41,7 @@ var dataMap = {
 				desc: "background3"
 			}
 		],
-		productInfo: "watch介绍"
-	},
-	"phone":{
-		imageFolder:"assets/images/phone/",
-		prefix:"phone_{{color}}_",
-		ext: ".png",
-		colorList:["black","white"],
-		backgroud:[
-			{
-				img:"background1.jpg",
-				desc: "background1"
-			},
-			{
-				img:"background2.jpg",
-				desc: "background2"
-			}
-			,
-			{
-				img:"background3.jpg",
-				desc: "background3"
-			}
-		],
-		productInfo: "phone介绍"
+		productInfo: "shoe介绍"
 	},
 	"chair":{
 		imageFolder:"assets/images/chair/",
@@ -86,5 +64,27 @@ var dataMap = {
 			}
 		],
 		productInfo: "chair介绍"
+	},
+	"car":{
+		imageFolder:"assets/images/car/",
+		prefix:"car_{{color}}_",
+		ext: ".png",
+		colorList:["blue","white"],
+		backgroud:[
+			{
+				img:"background1.jpg",
+				desc: "background1"
+			},
+			{
+				img:"background2.jpg",
+				desc: "background2"
+			}
+			,
+			{
+				img:"background3.jpg",
+				desc: "background3"
+			}
+		],
+		productInfo: "car介绍"
 	}
 }
