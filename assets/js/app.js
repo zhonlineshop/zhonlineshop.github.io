@@ -44,40 +44,18 @@ $(function () {
         $("#area1").show();
     }
 
-    function changeProductOrMode(product,  mode){
+    function changeProductOrMode(product,  mode, rmdBg){
         currentProduct = product;
          if(mode == 0){
             $('#displayContainer').empty()
                     .append('<img class="center-img" src=' + product.imageFolder + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
-
         }else {
              $('#displayContainer').empty()
                     .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
-            if(mode == 1){
-                 buildThreeSixty(product);
-             }else {
-                 if(mode == 2){
-
-                    // 切换颜色
-                    $('#selectModeSubColor .list').empty();
-                     for(var colorIndex in product.colorList){
-                        $('#selectModeSubColor .list')
-                            .append('<button type="button" class="am-btn am-round am-btn-xs" data-color="'+ product.colorList[colorIndex] +'">' 
-                                    + product.colorList[colorIndex]+ '</button>');
-                     }
-                     $('#chooseColor').trigger('click');
-
-                     // 切换背景
-                     for(var bgIndex in product.backgroud){
-                        $('#selectModeSubBg .list')
-                            .append('<button type="button" class="am-btn am-round am-btn-xs" data-bgimg="'+ product.backgroud[bgIndex].img +'">' 
-                                    +product.backgroud[bgIndex].desc+ '</button>');
-                     }
-                     $('#chooseBg').trigger('click');
-
-                 }
-             }
-
+            buildThreeSixty(product); 
+            if(rmdBg && rmdBg.img && rmdBg.img !== ''){
+                $('.product' , '#displayContainer').css('background-image', 'url(./'+ product.imageFolder + rmdBg.img +')');
+            }           
         }
     }
 
@@ -86,6 +64,7 @@ $(function () {
          $("#countTimes").html(countTimes);
         // $$$随机产生一个产品
         var rmdProduct = getRmdProduct();
+        console.info(rmdProduct)
 
          // $$$随机产生一中展示方式0:2D 1:3D 2:Contextual interaction
         var rmdMode = Math.floor(Math.random() * 3);
@@ -113,7 +92,7 @@ $(function () {
             $('#interactionSelect').hide();
         }
         $('#productInfo').html(rmdProduct.productInfo);
-        changeProductOrMode(rmdProduct, rmdMode);
+        changeProductOrMode(rmdProduct, rmdMode, rmdBg);
     }
 
     showCase();
@@ -146,7 +125,7 @@ $(function () {
         $('#displayContainer').empty()
                     .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
         buildThreeSixty(currentProduct, color);
-        $('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
+        $('.product' , '#displayContainer').css('background-image', 'url(./'+ currentProduct.imageFolder + bgimg +')');
     });
 
     $("#chooseBg").change(function(){
@@ -162,7 +141,7 @@ $(function () {
          $('#displayContainer').empty()
                     .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
         buildThreeSixty(currentProduct, color);
-        $('.product' , '#displayContainer').css('background-image', 'url('+ currentProduct.imageFolder + bgimg +')');
+        $('.product' , '#displayContainer').css('background-image', 'url(./'+ currentProduct.imageFolder + bgimg +')');
 
     });
 
