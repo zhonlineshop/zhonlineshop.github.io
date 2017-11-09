@@ -35,8 +35,8 @@ var dataMap = {
 		colorList:["blue","pink","white"],
 		backgroud:[
 			{
-				img: null,
-				desc: "blank"
+				img:"background1.jpg",
+				desc: "background1"
 			},
 			{
 				img:"background2.jpg",
