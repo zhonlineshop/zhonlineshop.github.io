@@ -156,3 +156,7 @@ img.center-img{
     text-align: center;
     font-size: 700;
 }
+
+.am-panel-bd{
+    padding:0; 
+}
