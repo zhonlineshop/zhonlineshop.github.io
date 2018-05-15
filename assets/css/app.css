@@ -157,6 +157,17 @@ img.center-img{
     font-size: 700;
 }
 
+#area1 .am-container .content{
+    height: 350px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 700;
+}
+
+#area1 .am-container .content .tips{
+    color:  #09bb07;
+}
+
 .am-panel-bd{
     padding:0; 
 }

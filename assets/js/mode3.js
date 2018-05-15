@@ -15,84 +15,75 @@ $(function () {
     // 左右panel等高
     $('.con-panel-right').height($('.img-panel-left').height());
 
+
+    // 根据页面切换这里
+    var indecator = $('#indecator').val();
+    var product = dataMap[indecator]; 
+
+
     // $$$全局变量
     var currentProduct = "";
     var currentProductIndex = -1;
-    var showTimes = 2; // 展示的商品数
-    var countTimes = 30; // 倒计时30
-    var selectColorTimes = 3; // 最多只能选择3次颜色
-    var selectBgTimes = 3; // 最多只能选择3次背景
-
-    // $$$初始化产品
-    var productArr = [];
-    for(var product in dataMap){
-        productArr.push(product);
-    }
+    var countTimes = 300; // 倒计时300s
 
     function getRmdProduct() {
-        var rmdProductIndex = Math.floor(Math.random() * productArr.length);
-        var rmdProduct = dataMap[productArr[rmdProductIndex]];
-        if(currentProductIndex === rmdProductIndex){
-            getRmdProduct();
-        }
-        currentProduct = rmdProduct;
-        return rmdProduct;
+        return product;
     }
 
     function showOver(){
         $("#area2").hide();
         $("#area1").show();
+        // 10秒后关闭窗口
+        var closeNum = 10;
+        setInterval(function(){
+            $('#closeNum').html(closeNum);
+            closeNum--;
+            if(closeNum == -1) {
+                closeWindow();
+            }
+            if(closeNum < 0) {
+                closeNum = 0;
+            }
+        }, 1000);
     }
 
-    function changeProductOrMode(product,  mode, rmdBg){
+    function changeProductOrMode(product, rmdBg){
         currentProduct = product;
-         if(mode == 0){
-            $('#displayContainer').empty()
-                    .append('<img class="center-img" src=' + product.imageFolder + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
-        }else {
-             $('#displayContainer').empty()
-                    .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
-            buildThreeSixty(product); 
-            if(rmdBg && rmdBg.img && rmdBg.img !== ''){
-                $('.product' , '#displayContainer').css('background-image', 'url(./'+ product.imageFolder + rmdBg.img +')');
-            }           
-        }
+        $('#displayContainer').empty()
+                .append('<div class="threesixty preloading product"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div> ');
+        buildThreeSixty(product); 
+        if(rmdBg && rmdBg.img && rmdBg.img !== ''){
+            $('.product' , '#displayContainer').css('background-image', 'url(./'+ product.imageFolder + rmdBg.img +')');
+        }   
     }
 
     function showCase (){
-         countTimes = 30;
          $("#countTimes").html(countTimes);
         // $$$随机产生一个产品
         var rmdProduct = getRmdProduct();
         console.info(rmdProduct)
 
-         // $$$随机产生一中展示方式0:2D 1:3D 2:Contextual interaction
-        var rmdMode = Math.floor(Math.random() * 3);
-        
-         if(rmdMode == 2){
-            // $$$随机产生一个颜色
-            var rmdColorIndex =  Math.floor(Math.random() * rmdProduct.colorList.length);
-            var rmdColor =  rmdProduct.colorList[rmdColorIndex];
-            // $$$随机产生一个背景图
-            var rmdBgIndex =  Math.floor(Math.random() * rmdProduct.backgroud.length);
-            var rmdBg =  rmdProduct.backgroud[rmdBgIndex];
-            // $$$ 生成下拉选项
-            $('#chooseColor').empty();
-            $('#chooseBg').empty();
-            for(var i in rmdProduct.colorList){
-                var item = rmdProduct.colorList[i];
-                $('#chooseColor').append('<option value="' + item+ '">' + item + '</option>')
-            }
-            for(var i in rmdProduct.backgroud){
-                var item = rmdProduct.backgroud[i];
-                $('#chooseBg').append('<option value="' + item.img + '">' + item.desc + '</option>')
-            }
-            $('#interactionSelect').show();
-        }else{
-            $('#interactionSelect').hide();
+         // $$$随机产生一个颜色
+        var rmdColorIndex =  Math.floor(Math.random() * rmdProduct.colorList.length);
+        var rmdColor =  rmdProduct.colorList[rmdColorIndex];
+        // $$$随机产生一个背景图
+        var rmdBgIndex =  Math.floor(Math.random() * rmdProduct.backgroud.length);
+        var rmdBg =  rmdProduct.backgroud[rmdBgIndex];
+        // $$$ 生成下拉选项
+        $('#chooseColor').empty();
+        $('#chooseBg').empty();
+        for(var i in rmdProduct.colorList){
+            var item = rmdProduct.colorList[i];
+            $('#chooseColor').append('<option value="' + item+ '">' + item + '</option>')
         }
+        for(var i in rmdProduct.backgroud){
+            var item = rmdProduct.backgroud[i];
+            $('#chooseBg').append('<option value="' + item.img + '">' + item.desc + '</option>')
+        }
+        $('#interactionSelect').show();
+
         $('#productInfo').html(rmdProduct.productInfo);
-        changeProductOrMode(rmdProduct, rmdMode, rmdBg);
+        changeProductOrMode(rmdProduct, rmdBg);
     }
 
     showCase();
@@ -100,26 +91,14 @@ $(function () {
          countTimes--
          $("#countTimes").html(countTimes);
          if(countTimes == -1){
-            showTimes--;
-            if(showTimes >= 1){
-                 showCase();
-            }
-            if(showTimes == 0){
-                clearInterval(itv);
-                showOver();
-            }
+            clearInterval(itv);
+            showOver();
          }
           // 左右panel等高
         $('.con-panel-right').height($('.img-panel-left').height());
     }, 1000);
     
     $("#chooseColor").change(function(){
-        countTimes = 30;
-        selectColorTimes --;
-        if(selectColorTimes <= 0){
-            clearInterval(itv);
-            return false;
-        }
         var color = $("#chooseColor").val();
         var bgimg = $("#chooseBg").val();
         $('#displayContainer').empty()
@@ -129,13 +108,6 @@ $(function () {
     });
 
     $("#chooseBg").change(function(){
-        countTimes = 30;
-        selectBgTimes --;
-        console.info(selectBgTimes)
-        if(selectBgTimes <= 0){
-            clearInterval(itv);
-            return false;
-        }
         var color = $("#chooseColor").val();
         var bgimg = $("#chooseBg").val();
          $('#displayContainer').empty()
@@ -160,9 +132,16 @@ $(function () {
                 imagePath: product.imageFolder, // path of the image assets
                 filePrefix: product.prefix.replace(/{{color}}/g,  color || product.colorList[0]), // file prefix if any
                 ext: product.ext, // extention for the assets
-                
                 navigation: true
             });
+    }
+
+    function closeWindow(){
+          window.opener=null;
+          window.open('','_self');
+          window.close();
+          window.location.href="about:blank";
+          window.close();
     }
 
 
