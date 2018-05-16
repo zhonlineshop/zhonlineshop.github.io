@@ -13,9 +13,56 @@ $(function () {
 
     // 根据页面切换这里
     var indecator = $('#indecator').val();
-    var product = dataMap[indecator]; 
+    var product = dataMap[indecator];
+    var countTimes = 180; // 倒计时180s
+ 
 
     $('#displayContainer').html('<img class="center-img" src=' + product.imageFolder + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
     $('#productInfo').html(product.productInfo);
+
+
+    $("#countTimes").html(countTimes);
+
+    function showOver(){
+        $("#area2").hide();
+        $("#area1").show();
+        // 10秒后关闭窗口
+        var closeNum = 10;
+        setInterval(function(){
+            $('#closeNum').html(closeNum);
+            closeNum--;
+            if(closeNum == -1) {
+                closeWindow();
+            }
+            if(closeNum < 0) {
+                closeNum = 0;
+            }
+        }, 1000);
+    }
+
+
+    var itv = setInterval(function(){
+         countTimes--
+         $("#countTimes").html(countTimes);
+         if(countTimes == -1){
+            clearInterval(itv);
+            showOver();
+         }
+          // 左右panel等高
+        $('.con-panel-right').height($('.img-panel-left').height());
+    }, 1000);
+    
+
+
+    function closeWindow(){
+          window.opener=null;
+          window.open('','_self');
+          window.close();
+          window.location.href="about:blank";
+          window.close();
+    }
+
+
+    
 
 })
