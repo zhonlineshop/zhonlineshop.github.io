@@ -123,7 +123,7 @@ var dataMap = {
 			"<li>Texture of the seat: Leather</li>"+
 			"<li>The volume of oil tank: 80L</li>"+
 			"</ul>"
-	}
+	},
 	"laptop":{
 		imageFolder:"assets/images/laptop/",
 		prefix:"laptop_{{color}}_",

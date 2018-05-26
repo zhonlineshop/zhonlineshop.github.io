@@ -171,3 +171,8 @@ img.center-img{
 .am-panel-bd{
     padding:0; 
 }
+
+
+.am-panel.am-panel-primary.con-panel-right {
+    overflow: auto;
+}
