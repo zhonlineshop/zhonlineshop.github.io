@@ -73,4 +73,21 @@ $(function () {
           window.close();
     }
 
+
+   var popHtml = '<div style="text-align:center; margin-top:30px;">Please close other running applications. </div>'
+        + '<div style="text-align:center; margin-top:30px;">You can use rotation function in 3D presentation.</div>';
+
+
+    layer.ready(function(){ 
+      layer.open({
+        type: 1,
+        title: 'Tips',
+        maxmin: false,
+        area: ['600px', '380px'],
+        content: popHtml,
+        btn: ["I know it"]
+      });
+    });
+
+
 })

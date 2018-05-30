@@ -34,12 +34,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prev-img {
-    min-height: 300px;
+    min-height: 350px;
     overflow: auto;
 }
 
 .prev-img img {
-    max-height: 280px;
+    max-height: 420px;
 }
 
 .no-borderb {
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro-mod .intro-list {
-    margin: 100px 0;
+    margin: 20px 0;
 }
 
 .intro-mod .intro-list .intro-text {
@@ -169,10 +169,26 @@ img.center-img{
 }
 
 .am-panel-bd{
-    padding:0; 
+    padding:0;
+    padding-bottom: 40px;
 }
 
 
 .am-panel.am-panel-primary.con-panel-right {
+    height: 410px;
     overflow: auto;
+}
+
+.am-panel.am-panel-primary.con-panel-right li.title {
+    list-style: none;
+    font-weight: bold;
+}
+
+
+.am-panel.am-panel-primary.con-panel-right .add-to-cart{
+    position: absolute;right:38px;
+    bottom: 21px;display: inline-block;
+    background: white;
+    width: 300px;
+    padding-left: 30px;
 }

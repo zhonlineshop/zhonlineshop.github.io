@@ -8,17 +8,16 @@ $(function () {
         aLi = $('.am-nav').find('a');
     }
 
-    // 左右panel等高
-    $('.con-panel-right').height($('.img-panel-left').height());
-
     // 根据页面切换这里
     var indecator = $('#indecator').val();
     var product = dataMap[indecator];
     var countTimes = 180; // 倒计时180s
  
 
-    $('#displayContainer').html('<img class="center-img" src=' + product.imageFolder + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
+    $('#displayContainer').html('<img class="center-img" src=' + product.imageFolder 
+      + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
     $('#productInfo').html(product.productInfo);
+    $('#productTtile').html(product.productTtile);
 
 
     $("#countTimes").html(countTimes);
@@ -41,6 +40,8 @@ $(function () {
     }
 
 
+  // 左右panel等高
+   $('.con-panel-right').height($('.img-panel-left').height());
     var itv = setInterval(function(){
          countTimes--
          $("#countTimes").html(countTimes);
@@ -63,6 +64,19 @@ $(function () {
     }
 
 
-    
+   var popHtml = '<div style="text-align:center; margin-top:60px;">Please close other running applications. </div>';
+
+
+    layer.ready(function(){ 
+      layer.open({
+        type: 1,
+        title: 'Tips',
+        maxmin: false,
+        area: ['600px', '380px'],
+        content: popHtml,
+        btn: ["I know it"]
+      });
+    });
+
 
 })

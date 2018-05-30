@@ -26,7 +26,8 @@ var dataMap = {
 			"<li>The highest speed: 20km/h</li>"+
 			"<li>The number of loads: 2 adults</li>"+
 			"<li>Color: red/green/white</li>"+
-			"</ul>"
+			"</ul>",
+		productTtile: "scooter"
 	},
 	"shoe":{
 		imageFolder:"assets/images/shoe/",
@@ -58,7 +59,8 @@ var dataMap = {
 			"<li>Designed for young children who are learning to stand</li>"+
 			"<li>Sensory pods at heel and forefoot for enhanced ground feel </li>"+
 			"<li>Wipe clean with damp cloth</li>"+
-			"</ul>"
+			"</ul>",
+		productTtile: "shoe"
 	},
 	"chair":{
 		imageFolder:"assets/images/chair/",
@@ -91,7 +93,8 @@ var dataMap = {
 			"<li>Texture: steel plating</li>"+
 			"<li>360 degrees swivel function</li>"+
 			"<li>Product Dimensions: 37*37*108 cm</li>"+
-			"</ul>"
+			"</ul>",
+		productTtile: "chair"
 	},
 	"car":{
 		imageFolder:"assets/images/car/",
@@ -122,7 +125,8 @@ var dataMap = {
 			"<li>Car weight: 1800 kg</li>"+
 			"<li>Texture of the seat: Leather</li>"+
 			"<li>The volume of oil tank: 80L</li>"+
-			"</ul>"
+			"</ul>",
+		productTtile: "car"
 	},
 	"laptop":{
 		imageFolder:"assets/images/laptop/",
@@ -170,6 +174,7 @@ var dataMap = {
 			 "<li>Computer Memory Type: DDR4 SDRAM</li>"+
 			 "<li>Hardware Drive Interface: ATA</li>"+
 			 "<li>Batteries: 1 Lithium Polymer batteries required</li>"+
-			"</ul>"
+			"</ul>",
+		productTtile: "Apple MacBook Pro 13 Inch Laptop $646"
 	}
 }
