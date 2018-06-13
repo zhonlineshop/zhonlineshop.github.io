@@ -124,7 +124,8 @@ footer {
 }
 
 footer .copyright {
-    text-align: center;;
+    text-align: center;
+    margin: 1rem   auto;
 }
 
 img.center-img{
