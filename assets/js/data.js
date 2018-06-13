@@ -204,7 +204,11 @@ var dataMap = {
 			"<li>Imported</li>"+
 			"<li>Made in Italy/China</li>"+
 			"<li>Lens is made Poly carbonate</li>"+
+<<<<<<< HEAD
 			"<li>Item model number: 0RB3449</li>"+
+=======
+			"<li>Item model number: 0RB3449</li>"
+>>>>>>> c4dd4f78bb39b789e6dae31488d376a9b79d3308
 			"</ul>",
 		productTtile: "Ray-Ban RB3449 Sunglasses ＄117.60"
 	},
@@ -232,7 +236,11 @@ var dataMap = {
 			"<li>Size: 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14 (US)</li>"+
 			"<li>Color: Red/Blue</li>"+
 			"<li>Rubber</li>"+
+<<<<<<< HEAD
 			"<li>Made in China</li>"+
+=======
+			"<li>Made in China</li>"
+>>>>>>> c4dd4f78bb39b789e6dae31488d376a9b79d3308
 			"</ul>",
 		productTtile: "Nike Jordan Air Joedan 1 Mid Basketball shoe ＄110"
 	},
@@ -264,7 +272,11 @@ var dataMap = {
 			"<li>Button for backlight: hold the light button, time will be clearly visible at night.</li>"+
 			"<li>Product Dimension: 4.1*2.2*6.5 inches</li>"+
 			"<li>Item Weight: 11.4 ounces</li>"+
+<<<<<<< HEAD
 			"<li>Manufacturer: Peakeep</li>"+
+=======
+			"<li>Manufacturer: Peakeep</li>"
+>>>>>>> c4dd4f78bb39b789e6dae31488d376a9b79d3308
 			"</ul>",
 		productTtile: "Twin Bell Alarm Clock with Battery Operated Loud Alarm Clock ＄20"
 	}
