@@ -176,5 +176,96 @@ var dataMap = {
 			 "<li>Batteries: 1 Lithium Polymer batteries required</li>"+
 			"</ul>",
 		productTtile: "Apple MacBook Pro 13 Inch Laptop $646"
+	},
+	"sunglasses":{
+		imageFolder:"assets/images/sunglasses/",
+		prefix:"sunglasses_{{color}}_",
+		ext: ".png",
+		colorList:["blue","grey"],
+		backgroud:[
+			{
+				img:"background1.jpg",
+				desc: "background1"
+			},
+			{
+				img:"background2.jpg",
+				desc: "background2"
+			}
+			,
+			{
+				img:"background3.jpg",
+				desc: "background3"
+			}
+		],
+		productInfo: "<ul><li>Price: ＄117.60</li>"+
+			"<li>Product Dimensions: 6*2*2 inches</li>"+
+			"<li>Color: Blue/Grey</li>"+
+			"<li>Plastic</li>"+
+			"<li>Imported</li>"+
+			"<li>Made in Italy/China</li>"+
+			"<li>Lens is made Poly carbonate</li>"+
+			"<li>Item model number: 0RB3449</li>"
+			"</ul>",
+		productTtile: "Ray-Ban RB3449 Sunglasses ＄117.60"
+	},
+	"athleteshoes":{
+		imageFolder:"assets/images/athleteshoes/",
+		prefix:"shoes_{{color}}_",
+		ext: ".png",
+		colorList:["red","blue"],
+		backgroud:[
+			{
+				img:"background1.jpg",
+				desc: "background1"
+			},
+			{
+				img:"background2.jpg",
+				desc: "background2"
+			}
+			,
+			{
+				img:"background3.jpg",
+				desc: "background3"
+			}
+		],
+		productInfo: "<ul><li>Price: ＄110</li>"+
+			"<li>Size: 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14 (US)</li>"+
+			"<li>Color: Red/Blue</li>"+
+			"<li>Rubber</li>"+
+			"<li>Made in China</li>"
+			"</ul>",
+		productTtile: "Nike Jordan Air Joedan 1 Mid Basketball shoe ＄110"
+	},
+	"clock":{
+		imageFolder:"assets/images/clock/",
+		prefix:"clock_{{color}}_",
+		ext: ".png",
+		colorList:["red","silver"],
+		backgroud:[
+			{
+				img:"background1.jpg",
+				desc: "background1"
+			},
+			{
+				img:"background2.jpg",
+				desc: "background2"
+			}
+			,
+			{
+				img:"background3.jpg",
+				desc: "background3"
+			}
+		],
+		productInfo: "<ul><li>Price: ＄20</li>"+
+			"<li>Color: Red/Silver</li>"+
+			"<li>Advantage: Neat dial with stereoscopic numbers instead of printed cardboard found in common market. Plus with the white hour and minute hand with perfect accuracy offer an awesome clearly legible look.</li>"+
+			"<li>Loud alarm clock for people who are heavy sleepers, mild loss hearing even deaf. No snooze button, good wake up clock for people who has trouble waking up.</li>"+
+			"<li>Silent with non-ticking hands, nice for a good working and learning environment, also for a soothing sleep.</li>" +
+			"<li>Button for backlight: hold the light button, time will be clearly visible at night.</li>"+
+			"<li>Product Dimension: 4.1*2.2*6.5 inches</li>"+
+			"<li>Item Weight: 11.4 ounces</li>"+
+			"<li>Manufacturer: Peakeep</li>"
+			"</ul>",
+		productTtile: "Twin Bell Alarm Clock with Battery Operated Loud Alarm Clock ＄20"
 	}
 }

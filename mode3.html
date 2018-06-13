@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Malls</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+     <link rel="stylesheet" href="assets/css/threesixty.css"/>
+    <link rel="stylesheet" href="assets/css/app.css"/>
+</head>
+<body>
+
+<input type="hidden" id="indecator" value=""/>
+
+<!-- 电脑和平板 菜单-->
+<header class="am-topbar am-topbar-fixed-top">
+    <div class="am-container">
+        <h1 class="am-topbar-brand">
+            Online Mall
+        </h1>
+        <button class="am-btn am-btn-primary am-show-sm-only nav-push-btn am-topbar-toggle "
+                data-am-offcanvas="{target: '#navPush', effect: 'push'}">
+            <span class="am-sr-only">导航切换</span>
+            <span class="am-icon-bars"></span>
+        </button>
+    </div>
+    <div class="am-container">
+        <div class="am-collapse am-topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav menu-main">
+                
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- 介绍 -->
+<div class="intro-mod module-wrap no-borderb" id="area1">
+    <div class="am-container">
+        <div class="content">
+             <div class="body">
+                 Product observation is finished, please come back to the questionnaire.
+            </div>
+            <div class="tips">
+                (This webpage will be closed after <span id="closeNum">10</span>s.)
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 介绍 -->
+<div class="intro-mod module-wrap no-borderb" id="area2">
+    <div class="am-container">
+
+        <div class="intro-list am-g">
+            <div class="am-u-md-12 am-u-sm-12 am-text-primary am-text-xl" id="productTtile">
+            </div>
+            
+            <div class="am-u-md-6 am-u-sm-12">
+                <div class="am-panel am-panel-primary img-panel-left">
+                    <div class="am-panel-hd">
+                        <h3 class="am-panel-title" style="display: inline-block;">
+                            <span>Image</span>
+                            <span id="countTimes">300</span>
+                        </h3>
+                        <span id="interactionSelect">
+                            <select id="chooseColor">
+                                <option>111</option>
+                                <option>222</option>
+                            </select>
+                            <select id="chooseBg">
+                                <option>111</option>
+                                <option>222</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="am-panel-bd prev-img">
+                        <div class="threesixty-wrapper" id="displayContainer">
+                            
+                            <div class="threesixty preloading product">
+                               <!--  <div class="spinner">
+                                    <span>0%</span>
+                                </div>
+                                <ol class="threesixty_images"></ol>-->
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-u-md-6 am-u-sm-12">
+                <div class="am-panel am-panel-primary con-panel-right">
+                    <div class="am-panel-hd">
+                        <h3 class="am-panel-title">Product Information</h3>
+                    </div>
+                    <div class="am-panel-bd" id="productInfo" style="font-size:.85em;">
+                         
+                    </div>
+                  <div class="add-to-cart">
+                        <span class="am-text-primary">Quantity</span>:<input value="1" style="width: 30px;">
+                        <button class="am-btn am-btn-primary am-round am-btn-xs">Add To Cart</button>
+                        <button class="am-btn am-btn-danger am-round am-btn-xs">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="am-container">
+        <p class="copyright"> Created By Zhou Fan </p>
+    </div>
+</footer>
+
+</body>
+<!--[if lt IE 9]>
+<script src="assets/js/jquery.v1.11.1.min.js"></script>
+<script src="assets/js/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/jquery.v2.1.1.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/threesixty.js"></script>
+<script src="assets/js/layer.js"></script>
+<script src="assets/js/m3.js"></script>
+</html>

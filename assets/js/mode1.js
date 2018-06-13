@@ -64,7 +64,7 @@ $(function () {
     }
 
 
-   var popHtml = '<div style="text-align:center; margin-top:60px;">Please close other running applications. </div>';
+   var popHtml = '<div style="text-align:center; margin-top:60px;">If your Internet connection is slow to load this website, please close other running applications to enhance speed.</div>';
 
 
     layer.ready(function(){ 
@@ -74,7 +74,7 @@ $(function () {
         maxmin: false,
         area: ['600px', '380px'],
         content: popHtml,
-        btn: ["I know it"]
+        btn: ["OK"]
       });
     });
 
