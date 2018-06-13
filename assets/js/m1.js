@@ -1,3 +1,9 @@
+function getQueryString(name) { 
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+  var r = window.location.search.substr(1).match(reg); 
+  if (r != null) return unescape(r[2]); return null; 
+}
+
 $(function () {
 
     //当前导航高亮
@@ -8,28 +14,19 @@ $(function () {
         aLi = $('.am-nav').find('a');
     }
 
-    // 左右panel等高
-    $('.con-panel-right').height($('.img-panel-left').height());
-
     // 根据页面切换这里
-    var indecator = $('#indecator').val();
-    var product = dataMap[indecator]; 
+    //var indecator = $('#indecator').val();
+    var indecator = getQueryString('p') || 'scooter';
+    $('#indecator').val(indecator);
+
+    var product = dataMap[indecator];
     var countTimes = 180; // 倒计时180s
+ 
 
-    $('.product' , '#displayContainer').ThreeSixty({
-        totalFrames: 16, // Total no. of image you have for 360 slider
-        endFrame: 16, // end frame for the auto spin animation
-        currentFrame: 1, // This the start frame for auto spin
-        imgList: '.threesixty_images', // selector for image list
-        progress: '.spinner', // selector to show the loading progress
-        imagePath: product.imageFolder, // path of the image assets
-        filePrefix: product.prefix.replace(/{{color}}/g,  product.colorList[0]), // file prefix if any
-        ext: product.ext, // extention for the assets
-        
-        navigation: true
-    });
-
+    $('#displayContainer').html('<img class="center-img" src=' + product.imageFolder 
+      + product.prefix.replace(/{{color}}/g,  product.colorList[0]) + '1'+ product.ext +'>');
     $('#productInfo').html(product.productInfo);
+    $('#productTtile').html(product.productTtile);
 
 
     $("#countTimes").html(countTimes);
@@ -52,6 +49,8 @@ $(function () {
     }
 
 
+  // 左右panel等高
+   $('.con-panel-right').height($('.img-panel-left').height());
     var itv = setInterval(function(){
          countTimes--
          $("#countTimes").html(countTimes);
@@ -64,7 +63,7 @@ $(function () {
     }, 1000);
     
 
-    
+
     function closeWindow(){
           window.opener=null;
           window.open('','_self');
@@ -74,8 +73,7 @@ $(function () {
     }
 
 
-   var popHtml = '<div style="text-align:center; margin-top:30px;">If your Internet connection is slow to load this website, please close other running applications to enhance speed. </div>'
-        + '<div style="text-align:center; margin-top:30px;">Please use the interactive functions.</div>';
+   var popHtml = '<div style="text-align:center; margin-top:60px;">If your Internet connection is slow to load this website, please close other running applications to enhance speed.</div>';
 
 
     layer.ready(function(){ 

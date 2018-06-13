@@ -1,3 +1,9 @@
+function getQueryString(name) { 
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+  var r = window.location.search.substr(1).match(reg); 
+  if (r != null) return unescape(r[2]); return null; 
+}
+
 $(function () {
 
     //当前导航高亮
@@ -12,7 +18,10 @@ $(function () {
     $('.con-panel-right').height($('.img-panel-left').height());
 
     // 根据页面切换这里
-    var indecator = $('#indecator').val();
+    //var indecator = $('#indecator').val();
+    var indecator = getQueryString('p') || 'scooter';
+    $('#indecator').val(indecator);
+    
     var product = dataMap[indecator]; 
     var countTimes = 180; // 倒计时180s
 
